@@ -29,5 +29,8 @@ jobs:
       - name: Pack
         run: make pack
 
-      - name: Install
-        run: yarn install ./preact-switch.tgz
+      - name: Package Install
+        run: make packinstall
+
+      - name: Example
+        run: make example
