@@ -1,0 +1,43 @@
+{
+  "bugs": {
+    "url": "https://github.com/aminnairi/preact-switch/issues"
+  },
+  "description": "Preact component for conditional rendering",
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/aminnairi/preact-switch",
+  "keywords": [
+    "preact",
+    "component",
+    "conditional",
+    "rendering",
+    "switch",
+    "case",
+    "default"
+  ],
+  "license": "GPL-3.0-or-later",
+  "main": "dist/switch.es.js",
+  "name": "@aminnairi/preact-switch",
+  "version": "0.1.0",
+  "scripts": {
+    "test": "nyc mocha --require @babel/register library/**/*.test.jsx",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "@testing-library/preact": "^2.0.1",
+    "babel-preset-preact": "^2.0.0",
+    "chai": "^4.3.4",
+    "jsdom": "^16.6.0",
+    "mocha": "^9.0.2",
+    "nyc": "^15.1.0",
+    "vite": "^2.4.1"
+  },
+  "dependencies": {
+    "preact": "^10.5.14"
+  }
+}
