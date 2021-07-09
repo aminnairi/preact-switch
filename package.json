@@ -41,7 +41,6 @@
     "vite": "^2.4.1"
   },
   "dependencies": {
-    "@aminnairi/preact-switch": "./preact-switch.tgz",
     "preact": "^10.5.14"
   }
 }
