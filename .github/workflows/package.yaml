@@ -1,0 +1,33 @@
+name: Package
+
+on:
+  pull_request:
+    branches:
+      - latest
+      - next
+
+  push:
+    branches:
+      - latest
+      - next
+
+jobs:
+  build:
+    name: Check that the package can be installed and used
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install
+        run: make install
+
+      - name: Build
+        run: make build
+
+      - name: Pack
+        run: make pack
+
+      - name: Install
+        run: yarn install ./preact-switch.tgz

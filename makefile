@@ -1,4 +1,4 @@
-.PHONY: install test build dev pack
+.PHONY: install dev test build preview pack example
 
 DOCKER_COMPOSE_RUN_OPTIONS=--rm
 
@@ -22,3 +22,9 @@ build:
 
 preview:
 	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) npm pack --dry-run
+
+pack:
+	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn pack --out preact-switch.tgz
+
+example:
+	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn vite --config vite.config.example.js

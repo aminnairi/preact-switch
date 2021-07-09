@@ -1,6 +1,6 @@
 import {h, render, toChildArray} from "preact";
 import {useCallback, useEffect, useState, useErrorBoundary} from "preact/hooks";
-import {Switch, Case, Default} from "./dist/switch.es.js";
+import {Switch, Case, Default} from "@aminnairi/preact-switch";
 
 const is    = wanted => input => wanted === input;
 const isNot = wanted => inut => input !== wanted;
