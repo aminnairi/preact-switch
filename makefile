@@ -6,7 +6,7 @@ ifeq (${CI},true)
 	DOCKER_COMPOSE_RUN_OPTIONS=--rm --user root -T
 endif
 
-YARN_OPTIONS=--strict-semver --ignore-scripts --ignore-optional --emoji true
+YARN_OPTIONS=--strict-semver --ignore-optional --emoji true
 
 install:
 	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn $(YARN_OPTIONS) install
