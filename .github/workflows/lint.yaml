@@ -1,0 +1,25 @@
+name: Lint
+
+on:
+  pull_request:
+    branches:
+      - next
+
+  push:
+    branches:
+      - next
+
+jobs:
+  lint:
+    name: Check that the code style is consistent
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install
+        run: make install
+
+      - name: Lint
+        run: make lint

@@ -1,4 +1,4 @@
-.PHONY: install dev test build preview pack packinstall example
+.PHONY: install dev test build preview pack packinstall example lint
 
 DOCKER_COMPOSE_RUN_OPTIONS=--rm
 
@@ -33,3 +33,6 @@ packinstall:
 
 example:
 	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn vite --config vite.config.example.js build
+
+lint:
+	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn lint
