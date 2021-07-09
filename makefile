@@ -24,7 +24,7 @@ preview:
 	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) npm pack --dry-run
 
 pack:
-	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) bash rm *.tgz
+	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) bash rm -rf *.tgz
 	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn pack preact-switch.tgz
 
 packinstall:
