@@ -9,7 +9,7 @@ endif
 YARN_OPTIONS=--strict-semver --ignore-optional --emoji true
 
 install:
-	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn $(YARN_OPTIONS) install
+	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn $(YARN_OPTIONS)
 
 dev:
 	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) --publish 3000:3000 yarn $(YARN_OPTIONS) dev --host
