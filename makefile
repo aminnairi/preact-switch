@@ -29,7 +29,6 @@ pack:
 
 packinstall:
 	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) bash mv $(shell ls *.tgz | cut -f 1 | head -1) preact-switch.tgz
-	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn remove @aminnairi/preact-switch
 	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn add ./preact-switch.tgz
 
 example:
