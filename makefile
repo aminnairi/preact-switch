@@ -1,4 +1,4 @@
-.PHONY: install dev test build preview pack example
+.PHONY: install dev test build preview pack packinstall example
 
 DOCKER_COMPOSE_RUN_OPTIONS=--rm
 
@@ -24,7 +24,13 @@ preview:
 	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) npm pack --dry-run
 
 pack:
-	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn pack --out preact-switch.tgz
+	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) bash rm *.tgz
+	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn pack preact-switch.tgz
+
+packinstall:
+	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) bash mv $(shell ls *.tgz | cut -f 1 | head -1) preact-switch.tgz
+	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn remove @aminnairi/preact-switch
+	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn add ./preact-switch.tgz
 
 example:
-	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn vite --config vite.config.example.js
+	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn vite --config vite.config.example.js build

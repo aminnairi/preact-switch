@@ -9,6 +9,7 @@ export default {
     lib: {
       entry: resolve("library/Switch.jsx"),
       name: "@aminnairi/switch",
+      formats: ["cjs", "es", "umd"]
     },
     outDir: "build"
   }

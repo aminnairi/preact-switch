@@ -4,7 +4,7 @@
   },
   "description": "Preact component for conditional rendering",
   "files": [
-    "dist"
+    "build"
   ],
   "homepage": "https://github.com/aminnairi/preact-switch",
   "keywords": [
@@ -16,9 +16,12 @@
     "case",
     "default"
   ],
+  "type": "module",
   "license": "GPL-3.0-or-later",
-  "main": "dist/switch.es.js",
+  "module": "./build/preact-switch.es.js",
   "name": "@aminnairi/preact-switch",
+  "main": "./build/preact-switch.cjs.js",
+  "unpkg": "./build/preact-switch.umd.js",
   "version": "0.1.0",
   "scripts": {
     "test": "nyc mocha --require @babel/register library/**/*.test.jsx",
@@ -38,6 +41,7 @@
     "vite": "^2.4.1"
   },
   "dependencies": {
+    "@aminnairi/preact-switch": "./preact-switch.tgz",
     "preact": "^10.5.14"
   }
 }

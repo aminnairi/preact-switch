@@ -11,6 +11,7 @@ services:
     command: --help
     volumes:
       - .:/home/node
+
   npm:
     image: node:16.0.0
     user: node
@@ -22,5 +23,11 @@ services:
     volumes:
       - .:/home/node
 
-
-
+  bash:
+    image: node:16.0.0
+    user: node
+    working_dir: /home/node
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/home/node
