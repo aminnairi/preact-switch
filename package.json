@@ -16,7 +16,6 @@
     "case",
     "default"
   ],
-  "type": "module",
   "license": "GPL-3.0-or-later",
   "module": "./build/preact-switch.es.js",
   "name": "@aminnairi/preact-switch",
