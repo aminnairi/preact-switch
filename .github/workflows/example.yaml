@@ -1,18 +1,16 @@
-name: Package
+name: Example
 
 on:
   pull_request:
     branches:
-      - latest
       - next
 
   push:
     branches:
-      - latest
       - next
 
 jobs:
-  build:
+  example:
     name: Check that the package can be installed and used
     runs-on: ubuntu-20.04
 
