@@ -17,7 +17,6 @@ $ npm install @aminnairi/preact-switch
 
 ```jsx
 import {h} from "preact";
-import {useState} from "preact/hooks";
 import {Switch, Case, Default} from "@aminnairi/preact-switch";
 
 const App = () => (
