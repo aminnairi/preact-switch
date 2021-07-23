@@ -20,26 +20,22 @@ import {h} from "preact";
 import {useState} from "preact/hooks";
 import {Switch, Case, Default} from "@aminnairi/preact-switch";
 
-const App = () => {
-  const [mood] = useState("ok");
-
-  return (
-    <Switch target={mood}>
-      <Case condition={target => target === "great"}>
-        Glad you are doing great!
-      </Case>
-      <Case condition={target => target === "ok"}>
-        I hope that everything is okay!
-      </Case>
-      <Case condition={target => target === "bad"}>
-        Is there anything I can do for you?
-      </Case>
-      <Default>
-        Have a great one!
-      </Default>
-    </Switch>
-  );
-};
+const App = () => (
+  <Switch target="ok">
+    <Case condition={target => target === "great"}>
+      Glad you are doing great!
+    </Case>
+    <Case condition={target => target === "ok"}>
+      I hope that everything is okay!
+    </Case>
+    <Case condition={target => target === "bad"}>
+      Is there anything I can do for you?
+    </Case>
+    <Default>
+      Have a great one!
+    </Default>
+  </Switch>
+);
 
 export default App;
 ```
