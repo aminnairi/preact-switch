@@ -42,7 +42,21 @@ describe("Switch", () => {
       const rendered = () => render(<App />);
 
       expect(rendered).to.throw(Error, "Only one Default is necessary in <Switch><!--Here--></Switch>");
+    });
 
+    it("should return an error if the component has no children", () => {
+      const App = () => (
+        <Switch target={true}>
+          <Case condition={target => target === true}>
+            true
+          </Case>
+          <Default />
+        </Switch>
+      );
+
+      const rendered = () => render(<App />);
+
+      expect(rendered).to.throw(Error, "No children found in <Switch><Case condition={predicate}><!--Here--></Case></Switch>");
     });
 
     it("should not return the case when it does not match", () => {
@@ -79,6 +93,18 @@ describe("Switch", () => {
       const rendered = () => render(<App />);
 
       expect(rendered).to.throw(Error, "predicate is not a function in <Switch><Case condition={predicate} /></Switch>");
+    });
+
+    it("should return an error if the component has no children", () => {
+      const App = () => (
+        <Switch target={true}>
+          <Case condition={target => target === true} />
+        </Switch>
+      );
+
+      const rendered = () => render(<App />);
+
+      expect(rendered).to.throw(Error, "No children found in <Switch><Default><!--Here--></Default></Switch>");
     });
 
     it("should return the case when it does match", () => {

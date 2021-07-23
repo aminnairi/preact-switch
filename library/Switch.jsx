@@ -5,6 +5,10 @@ const switchKind = Symbol("switchKind");
 export const Switch = ({target, children}) => {
   const [match, fallback] = toChildArray(children).reduce(([oldMatch, oldFallback, oldInput], child) => {
     if (child.type[switchKind] === "Default") {
+      if (!child.props.children) {
+        throw new Error("No children found in <Switch><Case condition={predicate}><!--Here--></Case></Switch>");
+      }
+
       if (!oldFallback) {
         return [oldMatch, child, oldInput];
       }
@@ -15,6 +19,10 @@ export const Switch = ({target, children}) => {
     if (child.type[switchKind] === "Case") {
       if (typeof child.props.condition !== "function") {
         throw new Error("predicate is not a function in <Switch><Case condition={predicate} /></Switch>");
+      }
+
+      if (!child.props.children) {
+        throw new Error("No children found in <Switch><Default><!--Here--></Default></Switch>");
       }
 
       if (child.props.condition(oldInput)) {
