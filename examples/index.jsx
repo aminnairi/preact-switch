@@ -1,6 +1,6 @@
 import {h, render, Fragment} from "preact";
 import {useCallback, useState, useErrorBoundary} from "preact/hooks";
-import {Switch, Case, Default} from "../library/Switch.jsx";
+import {Switch, Case, Default} from "@aminnairi/preact-switch";
 
 const App = () => {
   const [mood, setMood] = useState("ok");
