@@ -1,4 +1,4 @@
-.PHONY: install dev test build preview pack packinstall example lint publish
+.PHONY: install dev test build preview pack packinstall example lint publish coverage
 
 DOCKER_COMPOSE_RUN_OPTIONS=--rm
 
@@ -38,4 +38,7 @@ lint:
 	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn lint
 
 publish:
-	@docker-compose run --rm npm publish --access public
+	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) npm publish --access public
+
+publish:
+	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn coverage

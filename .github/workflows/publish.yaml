@@ -23,6 +23,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Coveralls
+        uses: echo "repo_token: ${{ secrets.COVERALLS_REPO_TOKEN }}" > .coveralls.yml
+
       - name: Install
         run: make install
 
@@ -31,6 +34,9 @@ jobs:
 
       - name: Test
         run: make test
+
+      - name: Coverage
+        run: make coverage
 
       - name: Build
         run: make build
@@ -42,4 +48,4 @@ jobs:
         run: 'make publish || true'
 
       - name: Clean
-        run: rm -rf .npmrc
+        run: rm -rf .npmrc .coveralls.yml
