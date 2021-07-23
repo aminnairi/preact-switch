@@ -13,7 +13,37 @@
 $ npm install @aminnairi/preact-switch
 ```
 
-## Examples
+## Features
+
+- Conditional rendering directly in JSX.
+- Just like a switch in JavaScript.
+- Error thrown when used incorrectly and catcheable with [`useErrorBoundary`](https://preactjs.com/guide/v10/hooks/#useerrorboundary).
+
+## Usage
+
+```jsx
+import {h} from "preact";
+import {Switch, Case, Default} from "@aminnairi/preact-switch";
+
+const App = () => (
+  <Switch target="ok">
+    <Case condition={target => target === "great"}>
+      Glad you are doing great!
+    </Case>
+    <Case condition={target => target === "ok"}>
+      I hope that everything is okay!
+    </Case>
+    <Case condition={target => target === "bad"}>
+      Is there anything I can do for you?
+    </Case>
+    <Default>
+      Have a great one!
+    </Default>
+  </Switch>
+);
+
+export default App;
+```
 
 See [`examples`](./examples).
 

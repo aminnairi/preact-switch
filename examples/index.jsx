@@ -1,90 +1,48 @@
-import {h, render, toChildArray} from "preact";
-import {useCallback, useEffect, useState, useErrorBoundary} from "preact/hooks";
+import {h, render, Fragment} from "preact";
+import {useCallback, useState, useErrorBoundary} from "preact/hooks";
 import {Switch, Case, Default} from "@aminnairi/preact-switch";
 
-const is    = wanted => input => wanted === input;
-const isNot = wanted => inut => input !== wanted;
-const or    = matches => input => matches.some(match => match(input));
-const and   = matches => input => matches.every(match => match(input));
-
-const Users = () => {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users").then(response => {
-      return response.json();
-    }).then(newUsers => {
-      setUsers(newUsers);
-    }).catch(() => {
-      setUsers([]);
-    });
-  }, [setUsers]);
-
-  return (
-    <ul>
-      {users.map(({username}) => <li>{username}</li>)}
-    </ul>
-  );
-};
-
-const Posts = () => {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts").then(response => {
-      return response.json();
-    }).then(newPosts => {
-      setPosts(newPosts);
-    }).catch(() => {
-      setPosts([]);
-    });
-  }, [setPosts]);
-
-  return (
-    <ul>
-      {posts.map(({title}) => <li>{title}</li>)}
-    </ul>
-  );
-};
-
 const App = () => {
-  const [selectValue, setSelectValue] = useState([]);
-  const [error] = useErrorBoundary();
+  const [mood, setMood] = useState("ok");
+  const [error]         = useErrorBoundary();
 
-  const onSelectValueChange = useCallback(event => {
-    setSelectValue(event.target.value);
-  }, [setSelectValue]);
+  const updateMood  = useCallback(({target: {value}}) => setMood(value), []);
+  const isGreatMood = useCallback(target => target === "great", []);
+  const isOkMood    = useCallback(target => target === "ok", []);
+  const isBadMood   = useCallback(target => target === "bad", []);
 
   if (error) {
     return (
-      <div>
+      <Fragment>
         <h2>Error</h2>
+        <p>An error occurred.</p>
         <p>{error.message}</p>
-      </div>
+      </Fragment>
     );
   }
 
   return (
-    <div>
-      <header>
-        <select onChange={onSelectValueChange} value={selectValue}>
-          <option value="utilisateurs">Utilisateurs</option>
-          <option value="users">Users</option>
-          <option value="articles">Articles</option>
-          <option value="posts">Posts</option>
-        </select>
-      </header>
-      <main>
-        <Switch target={true}>
-          <Case condition={target => target === true}>
-            <h2>Hello</h2>
-          </Case>
-          <Default>
-            False
-          </Default>
-        </Switch>
-      </main>
-    </div>
+    <Fragment>
+      <select value={mood} onChange={updateMood}>
+        <option value="great">Great</option>
+        <option value="ok">Okay</option>
+        <option value="bad">Bad</option>
+      </select>
+      <Switch target={mood}>
+        <Case condition={null}>
+          Glad you are doing great!
+        </Case>
+        <Case condition={isOkMood}>
+          I hope that everything is okay!
+        </Case>
+        <Case condition={isBadMood}>
+          Is there anything I can do for you?
+        </Case>
+        <Default>
+          Have a great one!
+        </Default>
+      </Switch>
+    </Fragment>
   );
 };
 
