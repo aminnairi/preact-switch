@@ -13,6 +13,12 @@
 $ npm install @aminnairi/preact-switch
 ```
 
+## Features
+
+- Conditional rendering directly in JSX.
+- Just like a switch in JavaScript.
+- Error thrown when used incorrectly and catcheable with [`useErrorBoundary`](https://preactjs.com/guide/v10/hooks/#useerrorboundary).
+
 ## Usage
 
 ```jsx
