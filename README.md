@@ -1,5 +1,7 @@
 # @aminnairi/preact-switch
 
+[![](https://badgen.net/snyk/aminnairi/preact-switch)](https://snyk.io/advisor/npm-package/@aminnairi/preact-switch)
+
 ## Requirements
 
 - Node.js
