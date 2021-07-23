@@ -1,14 +1,25 @@
 import {h, render, Fragment} from "preact";
-import {useCallback, useState} from "preact/hooks";
-import {Switch, Case, Default} from "@aminnairi/preact-switch";
+import {useCallback, useState, useErrorBoundary} from "preact/hooks";
+import {Switch, Case, Default} from "../library/Switch.jsx";
 
 const App = () => {
   const [mood, setMood] = useState("ok");
+  const [error]         = useErrorBoundary();
 
   const updateMood  = useCallback(({target: {value}}) => setMood(value), []);
   const isGreatMood = useCallback(target => target === "great", []);
   const isOkMood    = useCallback(target => target === "ok", []);
   const isBadMood   = useCallback(target => target === "bad", []);
+
+  if (error) {
+    return (
+      <Fragment>
+        <h2>Error</h2>
+        <p>An error occurred.</p>
+        <p>{error.message}</p>
+      </Fragment>
+    );
+  }
 
   return (
     <Fragment>
@@ -18,7 +29,7 @@ const App = () => {
         <option value="bad">Bad</option>
       </select>
       <Switch target={mood}>
-        <Case condition={isGreatMood}>
+        <Case condition={null}>
           Glad you are doing great!
         </Case>
         <Case condition={isOkMood}>
