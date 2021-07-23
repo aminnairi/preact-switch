@@ -25,7 +25,7 @@
   "scripts": {
     "test": "nyc mocha --require @babel/register library/**/*.test.jsx",
     "lint": "eslint .",
-    "dev": "vite",
+    "dev": "vite --config vite.config.example.js",
     "build": "vite build"
   },
   "devDependencies": {
