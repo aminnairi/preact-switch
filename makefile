@@ -40,5 +40,5 @@ lint:
 publish:
 	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) npm publish --access public
 
-publish:
+coverage:
 	@docker-compose run $(DOCKER_COMPOSE_RUN_OPTIONS) yarn coverage
