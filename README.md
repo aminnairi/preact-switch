@@ -16,6 +16,8 @@ $ npm install @aminnairi/preact-switch
 ## Usage
 
 ```jsx
+import {Switch, Case, Default} from "@aminnairi/preact-switch";
+
 const App = () => {
   const [mood, setMood] = useState("ok");
 
