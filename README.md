@@ -16,7 +16,11 @@ $ npm install @aminnairi/preact-switch
 ## Features
 
 - Conditional rendering directly in JSX.
+- No more messy brackets, ternary and short-circuit evaluation in JSX.
 - Just like a switch in JavaScript.
+- Strict runtime checking.
+- No switch without default.
+- No case nor default without children.
 - Error thrown when used incorrectly and catcheable with [`useErrorBoundary`](https://preactjs.com/guide/v10/hooks/#useerrorboundary).
 
 ## Usage
