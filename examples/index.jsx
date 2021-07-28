@@ -29,7 +29,7 @@ const App = () => {
         <option value="bad">Bad</option>
       </select>
       <Switch target={mood}>
-        <Case condition={null}>
+        <Case condition={isGreatMood}>
           Glad you are doing great!
         </Case>
         <Case condition={isOkMood}>
