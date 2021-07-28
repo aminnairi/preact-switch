@@ -2,9 +2,24 @@
 
 ## Versions
 
+- [`1.0.0`](#100)
 - [`0.2.1`](#021)
 - [`0.2.0`](#020)
 - [`0.1.0`](#010)
+
+## 1.0.0
+
+### Major changes
+
+- Added runtime type checking for the predication return value ([#19](https://github.com/aminnairi/preact-switch/pull/19))
+
+### Minor changes
+
+None.
+
+### Patches
+
+None.
 
 ## 0.2.1
 

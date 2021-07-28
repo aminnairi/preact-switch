@@ -21,7 +21,7 @@
   "name": "@aminnairi/preact-switch",
   "main": "./build/preact-switch.cjs.js",
   "unpkg": "./build/preact-switch.umd.js",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "scripts": {
     "test": "nyc mocha --require @babel/register library/**/*.test.jsx",
     "coverage": "nyc --reporter=text-lcov mocha --require @babel/register library/**/*.test.jsx | coveralls",
