@@ -21,11 +21,17 @@ export const Switch = ({target, children}) => {
         throw new Error("predicate is not a function in <Switch><Case condition={predicate} /></Switch>");
       }
 
-      if (!child.props.children) {
-        throw new Error("No children found in <Switch><Default><!--Here--></Default></Switch>");
+      const conditionReturnValue = child.props.condition(oldInput);
+
+      if (typeof conditionReturnValue !== "boolean") {
+        throw new Error("predicate does not return a boolean in <Switch><Case condition={predicate} /></Switch>");
       }
 
-      if (child.props.condition(oldInput)) {
+      if (!child.props.children) {
+        throw new Error("No children found in <Switch><Case><!--Here--></Case></Switch>");
+      }
+
+      if (conditionReturnValue) {
         return [child, oldFallback, oldInput];
       }
 

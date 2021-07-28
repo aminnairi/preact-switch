@@ -16,10 +16,16 @@ $ npm install @aminnairi/preact-switch
 ## Features
 
 - Conditional rendering directly in JSX.
+- No more messy brackets, ternary and short-circuit evaluation in JSX.
 - Just like a switch in JavaScript.
-- Error thrown when used incorrectly and catcheable with [`useErrorBoundary`](https://preactjs.com/guide/v10/hooks/#useerrorboundary).
+- Strict runtime checking.
+- No switch without case or default.
+- No case nor default without children.
+- Error thrown when used incorrectly and recoverable with [`useErrorBoundary`](https://preactjs.com/guide/v10/hooks/#useerrorboundary).
 
 ## Usage
+
+### Basic
 
 ```jsx
 import {h} from "preact";
@@ -41,6 +47,61 @@ const App = () => (
     </Default>
   </Switch>
 );
+
+export default App;
+```
+
+### Advanced
+
+```jsx
+import {h, Fragment} from "preact";
+import {useState, useCallback, useErrorBoundary} from "preact/hooks";
+import {Switch, Case, Default} from "@aminnairi/preact-switch";
+
+const App = () => {
+  const [error] = useErrorBoundary();
+
+  const [mood, setMood] = useState("ok");
+  const updateMood      = useCallback(({target: {value}}) => setMood(value), []);
+  
+  const isGreatMood = useCallback(target => target === "great", []);
+  const isOkMood    = useCallback(target => target === "ok", []);
+  const isBadMood   = useCallback(target => target === "bad", []);
+  
+  if (error) {
+    return (
+      <Fragment>
+        <h2>Error</h2>
+        <p>An error occurred</p>
+        <small>Reason: {error.message}</small>
+      </Fragment>
+    );
+  }
+
+  return (
+    <Fragment>
+      <select value={mood} onChange={updateMood}>
+        <option value="great">Great</option>
+        <option value="ok">Ok</option>
+        <option value="bad">Bad</option>
+      </select>
+      <Switch target={mood}>
+        <Case condition={isGreatMood}>
+          Glad you are doing great!
+        </Case>
+        <Case condition={isOkMood}>
+          I hope that everything is okay!
+        </Case>
+        <Case condition={isBadMood}>
+          Is there anything I can do for you?
+        </Case>
+        <Default>
+          Have a great one!
+        </Default>
+      </Switch>
+    </Fragment>
+  );
+};
 
 export default App;
 ```
