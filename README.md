@@ -21,7 +21,7 @@ $ npm install @aminnairi/preact-switch
 - Strict runtime checking.
 - No switch without case or default.
 - No case nor default without children.
-- Error thrown when used incorrectly and catcheable with [`useErrorBoundary`](https://preactjs.com/guide/v10/hooks/#useerrorboundary).
+- Error thrown when used incorrectly and recoverable with [`useErrorBoundary`](https://preactjs.com/guide/v10/hooks/#useerrorboundary).
 
 ## Usage
 
