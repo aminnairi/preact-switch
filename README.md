@@ -45,16 +45,16 @@ const App = () => (
 export default App;
 ```
 
-See [`examples`](./examples).
+See [`examples`](https://github.com/aminnairi/preact-switch/tree/next/examples).
 
 ## Contributing
 
-See [`CONTRIBUTING.md`](./CONTRIBUTING.md).
+See [`CONTRIBUTING.md`](https://github.com/aminnairi/preact-switch/blob/next/CONTRIBUTING.md).
 
 ## License
 
-See [`LICENSE`](./LICENSE).
+See [`LICENSE`](https://github.com/aminnairi/preact-switch/blob/next/LICENSE).
 
 ## Changelog
 
-See [`CHANGELOG.md`](./CHANGELOG.md).
+See [`CHANGELOG.md`](https://github.com/aminnairi/preact-switch/blob/next/CHANGELOG.md).
