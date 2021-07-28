@@ -19,7 +19,7 @@ $ npm install @aminnairi/preact-switch
 - No more messy brackets, ternary and short-circuit evaluation in JSX.
 - Just like a switch in JavaScript.
 - Strict runtime checking.
-- No switch without default.
+- No switch without case or default.
 - No case nor default without children.
 - Error thrown when used incorrectly and catcheable with [`useErrorBoundary`](https://preactjs.com/guide/v10/hooks/#useerrorboundary).
 
